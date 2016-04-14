@@ -1,0 +1,68 @@
+<ion-view view-title="Курс валют">
+    <ion-content class="valute">
+        <div ng-repeat="valute in valutes">
+            <div class="card">
+                <ion-item class="item-divider">{{valute.ccy}}</ion-item>
+                <div class="row">
+                    <div class="col">
+                        <h5>Покупка</h5>
+                        <p>{{valute.buy}}</p>
+                    </div>
+                    <div class="col">
+                        <h5>Продажа</h5>
+                        <p>{{valute.sale}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ion-list ng-if="valutes">
+            <ion-item class="item-divider">Архив курсов валют</ion-item>
+            <div class="card">
+                <h4>Выберите дату</h4>
+                <ion-item class="row">
+                    <div class="col">
+                        <h4>День</h4>
+                        <input type="number" min="1" max="31" value="1" ng-model="dateArch.day">
+                    </div>
+                    <div class="col">
+                        <h4>Месяц</h4>
+                        <input type="number" min="1" max="12" value="1" ng-model="dateArch.month">
+                    </div>
+                    <div class="col">
+                        <h4>Год</h4>
+                        <input type="number" min="2014" max="2016" value="2014" ng-model="dateArch.yers">
+                    </div>
+                </ion-item>
+                <div class="row">
+                    <button class="button button-block button-balanced" ng-click="getArch()">
+                        Найти
+                    </button>
+                </div>
+            </div>
+            <div ng-if="arcData">
+                <ion-list>
+                    <ion-item class="item-divider">{{arcData.date}}</ion-item>
+                    <div class="card" ng-repeat="item in arcData.exchangeRate">
+                        <ion-item>
+                           <ion-item class="item-divider">{{item.currency}}</ion-item>
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Продажи НБУ</h5>
+                                    <p>{{item.saleRateNB}} / {{item.purchaseRateNB}} </p>
+                                </div>
+                                <div class="col">
+                                    <h5>Продажи Приватбанка</h5>
+                                    <p>{{item.saleRate}}</p>
+                                </div>
+                                <div class="col">
+                                    <h5>Покупки Приватбанка</h5>
+                                    <p>{{item.purchaseRate}}</p>
+                                </div>
+                            </div>
+                        </ion-item>
+                    </div>
+                </ion-list>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

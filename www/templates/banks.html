@@ -1,0 +1,63 @@
+<ion-view view-title="Отделения">
+    <ion-content class="banks">
+        <ion-item>Внимание! Поиск производится по русским названиям</ion-item>
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <input type="text" ng-model="adress.city" placeholder="Город">
+                </div>
+                <div class="col">
+                    <input type="text" ng-model="adress.street" placeholder="Улица">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-block button-balanced" ng-click="getBanks()">
+                        Найти отделение по адресу
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" ng-show="banks.length == 0">
+            <ion-item class="item-divider">
+                <h4>По Вашему запросу ничего не найдено :(</h4>
+            </ion-item>
+        </div>
+        <div class="card" ng-repeat="item in banks">
+            <ion-item ng-click="openModal(item)" class="item-icon-right">
+                <i class="icon ion-plus-round"></i> {{item.city}} {{item.address}}
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>
+
+<script id="banksModal" type="text/ng-template">
+    <ion-modal-view>
+        <ion-header-bar>
+            <h1 class="title">My Modal title</h1>
+            <a class="button ion-close button-clear button-dark" ng-click="closeModal()"></a>
+        </ion-header-bar>
+        <ion-content class="banksModal">
+            <ion-list>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-home"></i> {{fullContentBank.city}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-information"></i> {{fullContentBank.name}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-location"></i> {{fullContentBank.address}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-document"></i>Индекс: {{fullContentBank.index}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-email"></i> {{fullContentBank.email}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-iphone"></i> {{fullContentBank.phone}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>

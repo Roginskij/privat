@@ -1,0 +1,30 @@
+<ion-view view-title="Учетная ставка НБУ">
+    <ion-content>
+        <ion-item>Введите год для поиска 1992 - 2015</ion-item>
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <input type="number" min="1992" max="2015" ng-model="nbu.yers" placeholder="Год">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-block button-balanced" ng-click="getNbu()">
+                        Получить учётную ставку НБУ
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" ng-show="nbuData.length == 0">
+            <ion-item class="item-divider">
+                <h4>По Вашему запросу ничего не найдено :(</h4>
+            </ion-item>
+        </div>
+        <div class="card" ng-if="nbuData">
+            <ion-item ng-repeat="item in nbuData">
+                <p>{{item.rate_date}}</p>
+                <p>{{item.rate_value}}</p>
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

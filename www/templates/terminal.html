@@ -1,0 +1,85 @@
+<ion-view view-title="Терминалы самообслуживания">
+    <ion-content class="terminal">
+        <ion-item>Внимание! Поиск производится по русским названиям</ion-item>
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <input type="text" ng-model="terminal.city" placeholder="Город">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-block button-balanced" ng-click="getTerminal()">
+                        Найти терминал по адресу
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" ng-show="terminals.devices.length == 0">
+            <ion-item class="item-divider">
+                <h4>По Вашему запросу ничего не найдено :(</h4>
+            </ion-item>
+        </div>
+        <div class="card" ng-repeat="item in terminals.devices">
+            <ion-item ng-click="openModal(item)" class="item-icon-right">
+                <i class="icon ion-plus-round"></i> {{item.fullAddressRu}}
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>
+
+<script id="terminalsModal" type="text/ng-template">
+    <ion-modal-view class="terminalModal">
+        <ion-header-bar>
+            <h1 class="title">Терминалы самообслуживания</h1>
+            <a class="button ion-close button-clear button-dark" ng-click="closeModal()"></a>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-paper-airplane"></i> {{terminalContent.placeRu}}
+                </ion-item>
+                <ion-item>
+                    <div class="row">
+                        <div class="col">
+                            <h5>Понедельник</h5>
+                            <p>{{terminalContent.tw.mon}}</p>
+                        </div>
+                        <div class="col">
+                            <h5>Вторник</h5>
+                            <p>{{terminalContent.tw.tue}}</p>
+                        </div>
+                        <div class="col">
+                            <h5>Среда</h5>
+                            <p>{{terminalContent.tw.wed}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5>Четверг</h5>
+                            <p>{{terminalContent.tw.thu}}</p>
+                        </div>
+                        <div class="col">
+                            <h5>Пятница</h5>
+                            <p>{{terminalContent.tw.fri}}</p>
+                        </div>
+                        <div class="col">
+                            <h5>Суббота</h5>
+                            <p>{{terminalContent.tw.sat}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h5>Воскресенье</h5>
+                            <p>{{terminalContent.tw.sun}}</p>
+                        </div>
+                        <div class="col">
+                            <h5>Праздники</h5>
+                            <p>{{terminalContent.tw.hol}}</p>
+                        </div>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>

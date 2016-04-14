@@ -1,0 +1,54 @@
+<ion-view view-title="Поиск банка по МФО">
+    <ion-content class="mfo">
+        <ion-item>Введите номер МФО</ion-item>
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <input type="text" ng-model="bankMfo.number" placeholder="Номер">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <button class="button button-block button-balanced" ng-click="getBankMfo()">
+                        Найти банк по МФО
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card" ng-show="banksMfo.length == 0">
+            <ion-item class="item-divider">
+                <h4>По Вашему запросу ничего не найдено :(</h4>
+            </ion-item>
+        </div>
+        <div class="card" ng-repeat="item in banksMfo">
+            <ion-item ng-click="openModal(item)" class="item-icon-right">
+                <i class="icon ion-plus-round"></i> {{item.NAME}}
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>
+
+<script id="bankMfosModal" type="text/ng-template">
+    <ion-modal-view class="mfoModal">
+        <ion-header-bar>
+            <h1 class="title">Банк</h1>
+            <a class="button ion-close button-clear button-dark" ng-click="closeModal()"></a>
+        </ion-header-bar>
+        <ion-content>
+            <ion-list>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-location"></i>Страна: {{bankMfoContent.COUNTRY}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-location"></i>Город: {{bankMfoContent.CITY}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-information"></i>Банк: {{bankMfoContent.NAME}}
+                </ion-item>
+                <ion-item class="item-icon-left">
+                    <i class="icon ion-pound"></i>МФО: {{bankMfoContent.MFO}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-modal-view>
+</script>
