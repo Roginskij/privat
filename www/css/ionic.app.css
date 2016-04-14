@@ -9734,6 +9734,27 @@ a.button {
 .dashboard ion-item {
   text-align: center; }
 
+.dashboard .card > div {
+  background-position: center center;
+  height: 128px;
+  background-size: contain;
+  margin: 10px 0px; }
+
+.dashboard .exchange {
+  background: url(../img/exange.png) no-repeat; }
+
+.dashboard .bank {
+  background: url(../img/bank.png) no-repeat; }
+
+.dashboard .terminal {
+  background: url(../img/terminal.png) no-repeat; }
+
+.dashboard .atm {
+  background: url(../img/atm.png) no-repeat; }
+
+.dashboard .nbu {
+  background: url(../img/nbu.png) no-repeat; }
+
 .valute .card h5 {
   text-align: center; }
 

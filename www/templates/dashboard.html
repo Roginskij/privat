@@ -1,51 +1,48 @@
-<ion-view view-title="Private Bank Info">
+<ion-view view-title="Приват 24">
     <ion-content class="dashboard">
         <ion-list>
             <div class="row">
                 <div class="col" ui-sref="app.valute">
-                    <ion-item class="card" >
-                        Курс валют
+                    <ion-item class="card">
+                        <div class="exchange"></div>
+                        <ion-item>Курс валют</ion-item>
                     </ion-item>
                 </div>
                 <div class="col" ui-sref="app.banks">
                     <ion-item class="card">
-                        Отделения
+                        <div class="bank"></div>
+                        <ion-item>Отделения</ion-item>
                     </ion-item>
                 </div>
             </div>
             <div class="row">
                 <div class="col" ui-sref="app.bankomats">
                     <ion-item class="card">
-                        Банкоматы
+                        <div class="atm"></div>
+                        <ion-item>Банкоматы</ion-item>
                     </ion-item>
                 </div>
                 <div class="col" ui-sref="app.terminal">
                     <ion-item class="card">
-                        Терминалы самообслуживания
+                        <div class="terminal"></div>
+                        <ion-item>Терминалы</ion-item>
                     </ion-item>
                 </div>
             </div>
             <div class="row">
                 <div class="col" ui-sref="app.bankMfo">
                     <ion-item class="card">
-                        Поиск банка по МФО
+                        <div class="bank"></div>
+                        <ion-item>Банк МФО</ion-item>
                     </ion-item>
                 </div>
                 <div class="col" ui-sref="app.nbu">
                     <ion-item class="card">
-                        Учетная ставка НБУ
+                        <div class="nbu"></div>
+                        <ion-item>Ставка НБУ</ion-item>
                     </ion-item>
                 </div>
             </div>
-<!--
-            <div class="row">
-                <div class="col-50">
-                    <ion-item class="card">
-                        Почтоматы
-                    </ion-item>
-                </div>
-            </div>
--->
         </ion-list>
     </ion-content>
 </ion-view>

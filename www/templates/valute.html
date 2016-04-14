@@ -44,12 +44,14 @@
                     <ion-item class="item-divider">{{arcData.date}}</ion-item>
                     <div class="card" ng-repeat="item in arcData.exchangeRate">
                         <ion-item>
-                           <ion-item class="item-divider">{{item.currency}}</ion-item>
+                            <ion-item class="item-divider">{{item.currency}}</ion-item>
                             <div class="row">
                                 <div class="col">
                                     <h5>Продажи НБУ</h5>
                                     <p>{{item.saleRateNB}} / {{item.purchaseRateNB}} </p>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col">
                                     <h5>Продажи Приватбанка</h5>
                                     <p>{{item.saleRate}}</p>

@@ -2,4 +2,25 @@
     ion-item {
         text-align: center;
     }
+    .card > div {
+        background-position: center center;
+        height: 128px;
+        background-size: contain;
+        margin: 10px 0px;
+    }
+    .exchange {
+        background: url(../img/exange.png) no-repeat;
+    }
+    .bank {
+        background: url(../img/bank.png) no-repeat;
+    }
+    .terminal {
+        background: url(../img/terminal.png) no-repeat;
+    }
+    .atm {
+        background: url(../img/atm.png) no-repeat;
+    }
+    .nbu {
+        background: url(../img/nbu.png) no-repeat;
+    }
 }
