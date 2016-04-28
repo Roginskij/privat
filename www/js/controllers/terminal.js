@@ -21,23 +21,30 @@ controllers.controller('terminalCtrl', ['$scope', 'queryPB', '$ionicModal', '$io
         $scope.modal.hide();
     };
 
-    $scope.terminal = {
+     $scope.terminal = {
         city: ''
+        , street: ''
     }
 
     $scope.getTerminal = function () {
+        var terminal = '&city=' + $scope.terminal.city;
 
         if (/[a-zA-Z]/.test($scope.terminal.city)) {
             $scope.showAlert('Введите русские буквы');
             return false
         }
 
-        if ($scope.terminal.city != '') {
-            queryPB.getBankomat($scope.terminal.city).then(function (data) {
+        if ($scope.terminal.street && $scope.terminal.city) {
+            terminal = '&address=' + $scope.terminal.street + '&city=' + $scope.terminal.city;
+            queryPB.getBankomat(terminal).then(function (data) {
+                $scope.terminals = data;
+            })
+        } else if ($scope.terminal.city) {
+            queryPB.getBankomat(terminal).then(function (data) {
                 $scope.terminals = data;
             })
         } else {
-            $scope.showAlert('Введите название города!')
+            $scope.showAlert('Введите название города!');
         }
     }
     $scope.mapPosition = function (data) {

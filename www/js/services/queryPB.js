@@ -2,8 +2,8 @@ services.factory('queryPB', ['$http', '$q', function ($http, $q) {
     var valute = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
     var arcValute = "https://api.privatbank.ua/p24api/exchange_rates?json&date=";
     var bank = 'https://api.privatbank.ua/p24api/pboffice?json';
-    var bankomat = 'https://api.privatbank.ua/p24api/infrastructure?json&atm&city=';
-    var terminal = 'https://api.privatbank.ua/p24api/infrastructure?json&tso&city=';
+    var bankomat = 'https://api.privatbank.ua/p24api/infrastructure?json&atm';
+    var terminal = 'https://api.privatbank.ua/p24api/infrastructure?json&tso';
     var bankMFO = 'https://api.privatbank.ua/p24api/bankinfo?json&bank=&mfo=';
     var nbu = 'https://api.buh.privatbank.ua/ratenbu.php?year='
     var gas = 'https://api.privatbank.ua/p24api/aviasstations?json&address=&state=Днепро';
