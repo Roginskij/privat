@@ -1,4 +1,4 @@
-controllers.controller('terminalCtrl', ['$scope', 'queryPB', '$ionicModal', '$ionicPopup', function ($scope, queryPB, $ionicModal, $ionicPopup) {
+controllers.controller('terminalCtrl', ['$scope', 'queryPB', '$ionicModal', '$ionicPopup', '$location', function ($scope, queryPB, $ionicModal, $ionicPopup, $location) {
 
     $scope.showAlert = function (template) {
         var alertPopup = $ionicPopup.alert({
@@ -40,5 +40,8 @@ controllers.controller('terminalCtrl', ['$scope', 'queryPB', '$ionicModal', '$io
             $scope.showAlert('Введите название города!')
         }
     }
-
+    $scope.mapPosition = function (data) {
+        $scope.modal.hide();
+        $location.path('/app/googleMap').search(data);
+    };
 }])

@@ -93,6 +93,15 @@ angular.module('starter', ['ionic', 'controllers', 'services'])
           }
         }
       })
+      .state('app.googleMap', {
+        url: '/googleMap',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/googleMap.html',
+            controller: 'googleMapCtrl'
+          }
+        }
+      })
 
 
     ;
